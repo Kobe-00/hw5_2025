@@ -1,0 +1,247 @@
+/* Updating font and background image */
+body {
+    font-family: 'Poppins', serif;
+    background-image: url('../images/concrete_seamless.png');
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flex layout for header */
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Navigation links as flex column by default */
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Logo animation */
+@keyframes logoAnimation {
+    from {
+        width: 25px;
+        opacity: 0;
+    }
+    to {
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+#logo {
+    animation: logoAnimation 5s ease-in-out;
+}
+
+/* Pricing Card layout */
+.card {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 450px;
+    text-align: center;
+    margin: 15px;
+    border-radius: 50px 50px 0 0;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Teal header section for price */
+.card > header {
+    background: #288088;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    padding: 20px 0;
+}
+
+/* Price text */
+.card > header h3 {
+    font-size: 3rem;
+    color: white;
+    margin: 0;
+}
+
+/* Package title (first list item) */
+.card li:first-of-type {
+    font-weight: bold;
+    padding: 10px 0;
+    margin: 20px 30px 10px 30px;
+    background: none;
+    display: inline-block;
+}
+
+
+
+.card ul {
+    padding: 0;
+    margin: 10px 0;
+    list-style: none;
+}
+
+/* General list item spacing */
+.card ul li {
+    margin: 10px 20px;
+}
+
+/* Button styling */
+.card button {
+    margin: 20px auto 30px auto;
+    padding: 10px 20px;
+    background-color: #288088;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Pricing container flex layout */
+.pricing {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+/* Gallery layout */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 300px;
+    border: solid 10px #50C7C7;
+    margin: 10px;
+}
+
+/* Make links same color even when visited - Question 5 */
+a:link, a:visited {
+    color: blue;
+    text-decoration: none;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 750px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav_links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .pricing {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .gallery img {
+        width: 150px;
+    }
+}
+
+/* Large screen layout */
+@media (min-width: 1200px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        background-color: #f1f1f1;
+        z-index: 1000;
+    }
+
+    .nav_links {
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 20px;
+    }
+
+    .pricing {
+        justify-content: center;
+        gap: 30px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .card {
+        flex-basis: 275px;
+    }
+
+    .gallery img {
+        width: 325px;
+    }
+
+    .card li header,
+    .card li h4 {
+        background: none;
+        margin: 0;
+        padding: 0;
+        display: block;
+        width: fit-content;  
+    }
+}
+
+@media (min-width: 1500px) {
+    .nav_links {
+        gap: 30px;
+    }
+
+    .pricing {
+        max-width: 1200px;
+    }
+}
+
+/* Print View */
+@media print {
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: none;
+    }
+
+    .gallery {
+        display: none;
+    }
+
+    .pricing {
+        align-items: flex-end;
+    }
+
+    .card {
+        flex-basis: 325px;
+        border: 2px solid #45ADDD;
+    }
+
+    .card li::before {
+        content: "👍 ";
+    }
+
+    .nav_links {
+        display: flex;
+        justify-content: space-around;
+        gap: 20px;
+    }
+}
